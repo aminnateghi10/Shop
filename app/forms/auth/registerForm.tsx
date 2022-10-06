@@ -1,23 +1,17 @@
 import {Form, FormikProps, withFormik} from "formik";
 import Input from "../../components/shared/form/input";
 import * as yup from 'yup'
+import {RegisterFormValuesInterface} from "../../contracts/auth";
 
-interface RegisterFormValues{
-    name : string ,
-    label : string,
-    type ? : string ,
-    inputClassName ? : string ,
-    labelClassName ? : string,
-    errClassName ? : string
-}
 
-const registervalidationSchema = yup.object().shape({
+
+const registerFormValidationSchema = yup.object().shape({
     name : yup.string().required().min(4),
     email: yup.string().required().email(),
     password: yup.string().required().min(8)
 })
 
-const InnerRegisterForm = (Props : FormikProps<RegisterFormValues>)=>{
+const InnerRegisterForm = (Props : FormikProps<RegisterFormValuesInterface>)=>{
 
 
     return(
@@ -36,14 +30,14 @@ const InnerRegisterForm = (Props : FormikProps<RegisterFormValues>)=>{
 
 interface RegisterFormProps{
 }
-const RegisterForm = withFormik<RegisterFormProps , RegisterFormValues>({
+const RegisterForm = withFormik<RegisterFormProps , RegisterFormValuesInterface>({
     mapPropsToValues:props=>({
         name:'',
         email:'',
         password:'',
         label:''
     }),
-    validationSchema: registervalidationSchema,
+    validationSchema: registerFormValidationSchema,
     handleSubmit:(values)=>{
         console.log(values)
     }
