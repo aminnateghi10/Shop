@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import {useCookies} from "react-cookie";
-import LoginForm from "../../app/forms/auth/loginForm";
+import LoginPhoneForm from "../../app/forms/auth/loginPhoneForm";
 
 const Login: NextPage = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['shopy-token']);
@@ -17,7 +17,7 @@ const Login: NextPage = () => {
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <LoginForm setCookie={setCookie} />
+                    <LoginPhoneForm setCookie={setCookie} />
                 </div>
             </div>
         </div>

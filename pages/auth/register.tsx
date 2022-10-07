@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import RegisterForm from "../../app/forms/auth/registerForm";
 
 const Register: NextPage = () => {
-
     return (
             <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">

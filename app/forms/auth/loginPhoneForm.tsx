@@ -1,22 +1,21 @@
 import {withFormik} from "formik";
 import * as yup from 'yup';
-import InnerLoginForm from "../../components/auth/innerLoginForm";
-import {LoginFormValuesInterface} from "../../contracts/auth";
+import InnerLoginPhoneForm from "../../components/auth/innerLoginPhoneForm";
+import {LoginPhoneFormValuesInterface} from "../../contracts/auth";
 import callApi from "../../helpers/callApi";
 import ValidationError from "../../exceptions/validationError";
 
 const loginFormValidationSchema = yup.object().shape({
-    email: yup.string().required().email(),
+    number: yup.string().min(11).max(11).required(),
     password: yup.string().required().min(8)
 })
 
 interface LoginFormProps{
     setCookie:any
 }
-const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
+const LoginPhoneForm = withFormik<LoginFormProps , LoginPhoneFormValuesInterface>({
     mapPropsToValues: props =>({
-        name:'',
-        email:'',
+        number:'',
         password:'',
     }),
     validationSchema: loginFormValidationSchema,
@@ -38,6 +37,6 @@ const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
                 })
         }
     }
-})(InnerLoginForm)
+})(InnerLoginPhoneForm)
 
-export default LoginForm;
+export default LoginPhoneForm;
