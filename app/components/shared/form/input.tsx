@@ -10,7 +10,6 @@ interface InputProps{
 }
 
 const Input : FC<InputProps> = ({name,label , type  = 'text' , inputClassName , errClassName , labelClassName})=>{
-
     return(
         <div>
             <label htmlFor={name} className={`block text-sm font-medium text-gray-700 ${labelClassName ?? ''}`}>{label}</label>

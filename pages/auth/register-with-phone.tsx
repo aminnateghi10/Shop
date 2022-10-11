@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import RegisterPhoneForm from "../../app/forms/auth/registerPhoneForm";
+import RegisterWithPhoneForm from "../../app/forms/auth/registerWithPhoneForm";
 
 const Register: NextPage = () => {
     return (
@@ -15,7 +15,7 @@ const Register: NextPage = () => {
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <RegisterPhoneForm />
+                        <RegisterWithPhoneForm />
                     </div>
                 </div>
             </div>

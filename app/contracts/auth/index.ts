@@ -4,7 +4,7 @@ export interface RegisterFormValuesInterface{
     password:string
 }
 
-export interface RegisterPhoneFormValuesInterface{
+export interface RegisterWithCodeFormValuesInterface{
     name:string ,
     phone : string
 }
@@ -14,8 +14,12 @@ export interface LoginFormValuesInterface{
     password : string,
 }
 
-export interface LoginPhoneFormValuesInterface{
-    number : string ,
-    password:string
+export interface LoginWithCodeFormValuesInterface{
+    phone : string
 }
+
+export interface ConfirmationCodeFormValuesInterface{
+    code:string
+}
+
 
