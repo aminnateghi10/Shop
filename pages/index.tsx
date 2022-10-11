@@ -2,8 +2,20 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {useAppSelector} from "../app/hooks";
+import {selectloginToken} from "../app/store/auth";
+import {useEffect} from "react";
+import Router from "next/router";
 
 const Home: NextPage = () => {
+
+  useEffect(()=>{
+    if (token == undefined){
+      Router.push('/auth/login')
+    }
+  },[])
+
+  const token = useAppSelector(selectloginToken)
   return (
     <div className={styles.container}>
       <Head>

@@ -1,5 +1,6 @@
 import {withFormik} from "formik";
 import * as yup from 'yup';
+import Router from "next/router";
 
 import InnerLoginForm from "../../components/auth/innerLoginForm";
 import {LoginFormValuesInterface} from "../../contracts/auth";
@@ -12,7 +13,7 @@ const loginFormValidationSchema = yup.object().shape({
 })
 
 interface LoginFormProps{
-    setCookie:any
+    setToken:(token:string)=> void
 }
 
 const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
@@ -25,12 +26,14 @@ const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
         try {
         let res = await callApi().post('/auth/login' , values)
 
-        props.setCookie('shopy-token' ,res.data.token ,{
-            maxAge:36000 * 24 * 30 ,
-            domain:'localhost',
-            path:'/',
-            sameSite:'lax'
-        })
+        props.setToken(res.data.token)
+        Router.push('/')
+        // ('shopy-token' ,res.data.token ,{
+        //     maxAge:36000 * 24 * 30 ,
+        //     domain:'localhost',
+        //     path:'/',
+        //     sameSite:'lax'
+        // })
 
         }catch (error : any){
             Object.entries(error.massage.errors).forEach(([key , value])=>{
