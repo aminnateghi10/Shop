@@ -22,10 +22,16 @@ const RegisterForm = withFormik<RegisterFormProps , RegisterFormValuesInterface>
         password:'',
     }),
     validationSchema: registerFormValidationSchema,
-    handleSubmit:async(values)=>{
+    handleSubmit:async(values ,{setFieldError})=>{
+        try {
         let res = await callApi().post('/auth/register' , values)
         if(res.status == 201){
         Router.push('/auth/login')
+        }
+        }catch (error: any){
+            Object.entries(error.massage.errors).forEach(([key , value])=>{
+                setFieldError(key , value as string)
+            })
         }
     }
 })(InnerRegisterForm)

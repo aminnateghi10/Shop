@@ -10,7 +10,7 @@ const Register: NextPage = () => {
                         src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                         alt="Workflow"
                     />
-                    <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">Rigeter on Shopy</h2>
+                    <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">Rigeter on Shopy with Phone Number</h2>
                 </div>
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
