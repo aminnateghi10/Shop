@@ -1,10 +1,19 @@
 import type { NextPage } from 'next'
 import {useCookies} from "react-cookie";
 
-import ConfirmationCodeForm from "../../app/forms/auth/loginWithCodeForm";
+import {useAppDispatch} from "../../app/hooks";
+import {updateLoginToken} from "../../app/store/auth";
+import LoginWithCodeForm from "../../app/forms/auth/loginWithCodeForm";
 
 const Login: NextPage = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['shopy-token']);
+
+    const dispatch = useAppDispatch();
+
+    const setLoginToken = (token:string)=>{
+        dispatch(updateLoginToken(token))
+    }
+
     return (
         <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -18,7 +27,7 @@ const Login: NextPage = () => {
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <ConfirmationCodeForm />
+                    <LoginWithCodeForm  setToken={setLoginToken}/>
                 </div>
             </div>
         </div>

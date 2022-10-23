@@ -14,16 +14,17 @@ const loginWithCodeFormValidationSchema = yup.object().shape({
 })
 
 interface ConfirmationCodeFormProps{
+    setToken:(token:string)=> void
 }
 const LoginWithCodeForm = withFormik<ConfirmationCodeFormProps , LoginWithCodeFormValuesInterface>({
     mapPropsToValues: props =>({
         phone:''
     }) ,
     validationSchema: loginWithCodeFormValidationSchema ,
-    handleSubmit:async(values , {setFieldError})=>{
+    handleSubmit:async(values , {props ,setFieldError})=>{
         try {
             let res = await callApi().post('/auth/login' , values)
-            localStorage.setItem('login-token' ,res.data.token)
+            props.setToken(res.data.token)
             Router.push('/auth/confirmation-code')
         }catch (error : any){
             Object.entries(error.massage.errors).forEach(([key , value])=>{

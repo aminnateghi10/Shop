@@ -19,7 +19,8 @@ export interface LoginWithCodeFormValuesInterface{
 }
 
 export interface ConfirmationCodeFormValuesInterface{
-    code:string
+    code:string ,
+    token:string
 }
 
 

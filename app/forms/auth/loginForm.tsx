@@ -13,7 +13,7 @@ const loginFormValidationSchema = yup.object().shape({
 })
 
 interface LoginFormProps{
-    setToken:(token:string)=> void
+
 }
 
 const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
@@ -26,7 +26,7 @@ const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
         try {
         let res = await callApi().post('/auth/login' , values)
 
-        props.setToken(res.data.token)
+
         Router.push('/')
         // ('shopy-token' ,res.data.token ,{
         //     maxAge:36000 * 24 * 30 ,
