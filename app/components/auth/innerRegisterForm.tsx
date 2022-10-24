@@ -1,8 +1,8 @@
+import Link from "next/link";
 import {Form, FormikProps} from "formik";
 
 import Input from "../shared/form/input";
 import {RegisterFormValuesInterface} from "../../contracts/auth";
-import Link from "next/link";
 
 const InnerRegisterForm = (Props : FormikProps<RegisterFormValuesInterface>)=>{
     return(
@@ -19,7 +19,6 @@ const InnerRegisterForm = (Props : FormikProps<RegisterFormValuesInterface>)=>{
                     <Link href='/auth/login'>Login</Link>
                 </div>
             </div>
-
         </Form>
     )
 }

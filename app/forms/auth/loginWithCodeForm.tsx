@@ -1,11 +1,10 @@
+import Router from "next/router";
 import {withFormik} from "formik";
 import * as yup from 'yup';
 
 import InnerLoginWithCodeForm from "../../components/auth/innerLoginWithCodeForm";
 import { LoginWithCodeFormValuesInterface} from "../../contracts/auth";
 import callApi from "../../helpers/callApi";
-import Router from "next/router";
-import ValidationError from "../../exceptions/validationError";
 
 const PhoneRegExp = /^(0|0098|\+98)9(0[1-5]|[1.3]\d|2[0-2]|98)\d{7}$/;
 

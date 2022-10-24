@@ -1,6 +1,6 @@
+import Router from "next/router";
 import {withFormik} from "formik";
 import * as yup from 'yup';
-import Router from "next/router";
 
 import InnerRegisterForm from "../../components/auth/innerRegisterForm";
 import {RegisterFormValuesInterface} from "../../contracts/auth";

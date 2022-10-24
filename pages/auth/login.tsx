@@ -1,8 +1,6 @@
 import type { NextPage } from 'next'
-import {useCookies} from "react-cookie";
+
 import LoginForm from "../../app/forms/auth/loginForm";
-import {useAppDispatch} from "../../app/hooks";
-import {updateLoginToken} from "../../app/store/auth";
 
 const Login: NextPage = () => {
 

@@ -6,8 +6,6 @@ import {updateLoginToken} from "../../app/store/auth";
 import LoginWithCodeForm from "../../app/forms/auth/loginWithCodeForm";
 
 const Login: NextPage = () => {
-    const [cookies, setCookie, removeCookie] = useCookies(['shopy-token']);
-
     const dispatch = useAppDispatch();
 
     const setLoginToken = (token:string)=>{

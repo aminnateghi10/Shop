@@ -1,11 +1,10 @@
+import Router from "next/router";
 import {withFormik} from "formik";
 import * as yup from 'yup';
-import Router from "next/router";
 
 import InnerLoginForm from "../../components/auth/innerLoginForm";
 import {LoginFormValuesInterface} from "../../contracts/auth";
 import callApi from "../../helpers/callApi";
-import ValidationError from "../../exceptions/validationError";
 
 const loginFormValidationSchema = yup.object().shape({
     email: yup.string().required().email(),
