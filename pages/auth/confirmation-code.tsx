@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import type { NextPage } from 'next'
+import type {NextPage} from 'next'
 import Router from "next/router";
 
 import ConfirmationCodeForm from "../../app/forms/auth/confirmationCodeForm";
@@ -9,18 +9,18 @@ import LogoAuth from "../../app/components/auth/logoAuth";
 
 const Login: NextPage = () => {
 
-    useEffect(()=>{
-        Router.beforePopState(()=>{
+    useEffect(() => {
+        Router.beforePopState(() => {
             clearLoginToken()
             return true
         })
 
-        if (token == undefined){
+        if (token == undefined) {
             Router.push('/auth/login-with-code')
         }
-    },[])
+    }, [])
     const dispatch = useAppDispatch();
-    const clearLoginToken = ()=> dispatch(updateLoginToken(undefined))
+    const clearLoginToken = () => dispatch(updateLoginToken(undefined))
 
     const token = useAppSelector(selectloginToken)
 
@@ -31,7 +31,7 @@ const Login: NextPage = () => {
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <ConfirmationCodeForm loginToken={token} clearLoginToken={clearLoginToken} />
+                    <ConfirmationCodeForm loginToken={token} clearLoginToken={clearLoginToken}/>
                 </div>
             </div>
         </div>

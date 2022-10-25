@@ -3,8 +3,8 @@ import {Form, FormikProps} from "formik";
 import Input from "../shared/form/input";
 import {ConfirmationCodeFormValuesInterface} from "../../contracts/auth";
 
-const InnerLoginForm = (Props : FormikProps<ConfirmationCodeFormValuesInterface>)=>{
-    return(
+const InnerLoginForm = (Props: FormikProps<ConfirmationCodeFormValuesInterface>) => {
+    return (
         <Form className="space-y-6">
             <Input name='code' type='text' label='code'/>
             <div>

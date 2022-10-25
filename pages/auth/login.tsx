@@ -1,9 +1,9 @@
-import type { NextPage } from 'next'
-
+import {NextPageWithLayout} from "../_app";
 import LoginForm from "../../app/forms/auth/loginForm";
 import LogoAuth from "../../app/components/auth/logoAuth";
+import GuestLayout from "../../app/components/guestLayout";
 
-const Login: NextPage = () => {
+const Login: NextPageWithLayout = () => {
 
 
     return (
@@ -11,11 +11,13 @@ const Login: NextPage = () => {
             <LogoAuth title='Login on Shopy'/>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <LoginForm />
+                    <LoginForm/>
                 </div>
             </div>
         </div>
     )
 }
+
+Login.getLayout = page => <GuestLayout>{page}</GuestLayout>
 
 export default Login;

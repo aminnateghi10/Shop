@@ -4,8 +4,8 @@ import {Form, FormikProps} from "formik";
 import Input from "../shared/form/input";
 import {LoginFormValuesInterface} from "../../contracts/auth";
 
-const InnerConfirmationCodeForm = (Props : FormikProps<LoginFormValuesInterface>)=>{
-    return(
+const InnerConfirmationCodeForm = (Props: FormikProps<LoginFormValuesInterface>) => {
+    return (
         <Form className="space-y-6">
             <Input name='email' label='Email address'/>
             <Input name='password' label='Password' type='Password'/>

@@ -11,33 +11,33 @@ const loginFormValidationSchema = yup.object().shape({
     password: yup.string().required().min(8)
 })
 
-interface LoginFormProps{
+interface LoginFormProps {
 
 }
 
-const LoginForm = withFormik<LoginFormProps , LoginFormValuesInterface>({
-    mapPropsToValues: props =>({
-        email:'',
-        password:'',
+const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
+    mapPropsToValues: props => ({
+        email: '',
+        password: '',
     }),
     validationSchema: loginFormValidationSchema,
-    handleSubmit:async(values , {props,setFieldError})=>{
+    handleSubmit: async (values, {props, setFieldError}) => {
         try {
-        let res = await callApi().post('/auth/login' , values)
+            let res = await callApi().post('/auth/login', values)
 
 
-        Router.push('/')
-        // ('shopy-token' ,res.data.token ,{
-        //     maxAge:36000 * 24 * 30 ,
-        //     domain:'localhost',
-        //     path:'/',
-        //     sameSite:'lax'
-        // })
+            Router.push('/')
+            // ('shopy-token' ,res.data.token ,{
+            //     maxAge:36000 * 24 * 30 ,
+            //     domain:'localhost',
+            //     path:'/',
+            //     sameSite:'lax'
+            // })
 
-        }catch (error : any){
-            Object.entries(error.massage.errors).forEach(([key , value])=>{
-                console.log(key , value)
-            setFieldError(key , value as string)
+        } catch (error: any) {
+            Object.entries(error.massage.errors).forEach(([key, value]) => {
+                console.log(key, value)
+                setFieldError(key, value as string)
             })
         }
     }

@@ -4,8 +4,8 @@ import {Form, FormikProps} from "formik";
 import Input from "../shared/form/input";
 import {RegisterFormValuesInterface} from "../../contracts/auth";
 
-const InnerRegisterForm = (Props : FormikProps<RegisterFormValuesInterface>)=>{
-    return(
+const InnerRegisterForm = (Props: FormikProps<RegisterFormValuesInterface>) => {
+    return (
         <Form className="space-y-6">
             <Input name='name' label='Name'/>
             <Input name='email' label='Email address'/>
