@@ -1,10 +1,15 @@
 import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/userPanelLayout";
+import {useAuth} from "../../app/hooks/useAuth";
+import UserInfo from "../../app/components/panel/userInfo";
+import {removeLoginToken} from "../../app/helpers/auth";
 
 const Panel: NextPageWithLayout = () => {
+        const {user} = useAuth();
     return (
         <div>
-            <h1>panel</h1>
+            <UserInfo/>
+            <div onClick={removeLoginToken}>log out</div>
         </div>
     )
 }
