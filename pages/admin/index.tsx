@@ -1,5 +1,4 @@
 import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/userPanelLayout";
 import AdminPanelLayout from "../../app/components/adminPanelLayout";
 
 const Panel: NextPageWithLayout = () => {
@@ -10,7 +9,6 @@ const Panel: NextPageWithLayout = () => {
     )
 }
 
-Panel.getLayout = (page) => <UserPanelLayout>{page}</UserPanelLayout>
-Panel.getLayout = (page) => <AdminPanelLayout>{page}</AdminPanelLayout>
+Panel.getLayout = (page) => <AdminPanelLayout >{page}</AdminPanelLayout>
 
 export default Panel;

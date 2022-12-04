@@ -1,8 +1,8 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 
-import { store } from './../app/store';
+import '../styles/globals.css'
+import { store } from './../app/store/index';
 import {NextPage} from "next";
 import {ReactElement, ReactNode} from "react";
 

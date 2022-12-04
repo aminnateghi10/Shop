@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import {ConfirmationCodeFormValuesInterface} from "../../contracts/auth";
 import callApi from "../../helpers/callApi";
 import InnerConfirmationCodeForm from "../../components/auth/innerConfirmationCodeForm";
-import {storeLoginToken} from "../../helpers/auth";
+// import {storeLoginToken} from "../../helpers/auth";
 import ValidationError from "../../exceptions/validationError";
 import Router from "next/router";
 
@@ -29,7 +29,7 @@ const ConfirmationCodeForm = withFormik<ConfirmationCodeFormProps, ConfirmationC
             let res = await callApi().post('/auth/login/verify-phone', values)
             // console.log()
             if (res.status == 200) {
-                storeLoginToken(res.data.user.token)
+                // storeLoginToken(res.data.user.token)
                 Router.push('/panel')
             }
         } catch (error: any) {

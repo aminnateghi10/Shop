@@ -11,8 +11,8 @@ const UserPanelLayout = ({children}: Props) => {
     console.log(user, error, loading)
     if (loading) return <h1>loading...</h1>
     if (error) {
+        return <></>
         Router.push('/auth/login')
-        return null
     }
     return (
         <div>

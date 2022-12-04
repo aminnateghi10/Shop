@@ -1,6 +1,3 @@
-import Cookies from 'universal-cookie';
-import {json} from "stream/consumers";
-
 const storeLoginToken =async (token: string, days = 10) => {
     await fetch('/api/login',{
         method:"POST" ,
@@ -19,4 +16,4 @@ const removeLoginToken =async() => {
     })
 }
 
-export {storeLoginToken, removeLoginToken}
+export {removeLoginToken}
